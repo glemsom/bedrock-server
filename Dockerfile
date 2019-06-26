@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-
+# TEST UPDATE
 # Install dependencies, download and extract the bedrock server
 RUN apt-get update && \
     apt-get install -y unzip curl libcurl4 libssl1.0.0 && \
