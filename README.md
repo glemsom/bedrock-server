@@ -18,7 +18,7 @@ This Docker image will download the Bedrock Server app and set it up, along with
         -v "bedrock-worlds:/bedrock-server/worlds"\
         -p 19132:19132/udp\
         --restart=unless-stopped\
-        roemer/bedrock-server
+        glemsom/bedrock-server
     ```
 3. Configure the default files in the `config` volume:
     1. Configure the `server.properties` to your likings.
