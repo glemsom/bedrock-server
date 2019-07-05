@@ -13,7 +13,7 @@ Minecraft Bedrock edition for Docker ( also Synology )
 4. Navigate to Image, and Launch an instance of "glemsom/bedrock-server"
 5. Choose "Advanced Settings"
 6. OPTIONAL: Select "Enable auto-restart"
-7. Under the Volume tab, choose "Add Folder" - and find (or create) a folder for storing Bedrock configuration and world files
+7. Under the Volume tab, choose "Add Folder" - and find (or create) a folder for storing Bedrock configuration and world files. Mount the folder as `/bedrock-server/data`
 8. Under Port Settings, change "Local Port" from "Auto" to 19132
 9. OPTIONAL: Console access to Bedrock
 Navigate to Docker -> Container -> Details -> Terminal
