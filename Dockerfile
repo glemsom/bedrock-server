@@ -15,8 +15,8 @@ run rm -f /bedrock-server/server.properties /bedrock-server/permissions.json /be
 # Setup symlinks from volume
 RUN ln -s /bedrock-server/data/worlds             /bedrock-server/worlds            && \
     ln -s /bedrock-server/data/server.properties  /bedrock-server/server.properties && \
-    ln -s /bedrock-server/config/permissions.json /bedrock-server/permissions.json  && \
-    ln -s /bedrock-server/config/whitelist.json   /bedrock-server/whitelist.json
+    ln -s /bedrock-server/data/permissions.json   /bedrock-server/permissions.json  && \
+    ln -s /bedrock-server/data/whitelist.json     /bedrock-server/whitelist.json
 
 ADD run.sh /bedrock-server/run.sh
 
