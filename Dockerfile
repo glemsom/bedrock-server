@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-# TEST UPDATE
+
 # Install dependencies, download and extract the bedrock server
 RUN apt-get update && \
     apt-get install -y unzip curl libcurl4 libssl1.0.0 && \
@@ -7,19 +7,21 @@ RUN apt-get update && \
     unzip bedrock-server.zip -d bedrock-server && \
     rm bedrock-server.zip
 
-# Create a separate folder for configurations move the original files there and create links for the files
-RUN mkdir /bedrock-server/config && \
-    mv /bedrock-server/server.properties /bedrock-server/config && \
-    mv /bedrock-server/permissions.json /bedrock-server/config && \
-    mv /bedrock-server/whitelist.json /bedrock-server/config && \
-    ln -s /bedrock-server/config/server.properties /bedrock-server/server.properties && \
-    ln -s /bedrock-server/config/permissions.json /bedrock-server/permissions.json && \
-    ln -s /bedrock-server/config/whitelist.json /bedrock-server/whitelist.json
+VOLUME /bedrock-server/data
+
+# Delete default config (supplied from volume)
+run rm -f /bedrock-server/server.properties /bedrock-server/permissions.json /bedrock-server/whitelist.json
+
+# Setup symlinks from volume
+RUN ln -s /bedrock-server/data/worlds             /bedrock-server/worlds            && \
+    ln -s /bedrock-server/data/server.properties  /bedrock-server/server.properties && \
+    ln -s /bedrock-server/config/permissions.json /bedrock-server/permissions.json  && \
+    ln -s /bedrock-server/config/whitelist.json   /bedrock-server/whitelist.json
+
+ADD run.sh /bedrock-server/run.sh
 
 EXPOSE 19132/udp
 
-VOLUME /bedrock-server/worlds /bedrock-server/config
-
 WORKDIR /bedrock-server
 ENV LD_LIBRARY_PATH=.
-CMD ./bedrock_server
+CMD ./run.sh
