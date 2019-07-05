@@ -88,7 +88,7 @@ fi
 
 if [ ! -f "/bedrock-server/data/whitelist.json" ]; then
 
-cat << 'EOF' > /bedrock-server/data/whitelists.json
+cat << 'EOF' > /bedrock-server/data/whitelist.json
 []
 EOF
 fi
