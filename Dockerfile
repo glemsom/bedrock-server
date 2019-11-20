@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 # Set Minecraft bedrock versuin
-ENV VERSION=1.13.2.0
+ENV VERSION=1.13.3.0
 
 # Install dependencies, download and extract the bedrock server
 RUN apt-get update && \
