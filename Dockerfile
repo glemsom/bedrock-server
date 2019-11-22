@@ -25,6 +25,7 @@ RUN ln -s /bedrock-server/data/worlds             /bedrock-server/worlds        
 ADD run.sh /bedrock-server/run.sh
 
 EXPOSE 19132/udp
+EXPOSE 19133/udp
 
 WORKDIR /bedrock-server
 ENV LD_LIBRARY_PATH=.
