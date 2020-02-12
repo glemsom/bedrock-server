@@ -4,16 +4,17 @@ FROM ubuntu:18.04
 ENV VERSION=1.14.30.2
 ENV TZ=Europe/Copenhagen
 
+# Set timezone
+RUN echo ${TZ} > /etc/timezone
+RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime
+
 # Install dependencies, download and extract the bedrock server
 RUN apt-get update && \
-    apt-get install -y unzip curl libcurl4 && \
+    apt-get install -y unzip curl libcurl4 tzdata && \
     rm -rf /var/lib/apt/lists/* && \
     curl https://minecraft.azureedge.net/bin-linux/bedrock-server-${VERSION}.zip --output bedrock-server.zip && \
     unzip bedrock-server.zip -d bedrock-server && \
     rm bedrock-server.zip
-
-RUN echo ${TZ} > /etc/timezone
-RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime
 
 VOLUME /bedrock-server/data
 
