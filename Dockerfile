@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 # Set Minecraft bedrock versuin
 ENV VERSION=1.14.30.2
-ENV TIMEZONE=Europe/Copenhagen
+ENV TZ=Europe/Copenhagen
 
 # Install dependencies, download and extract the bedrock server
 RUN apt-get update && \
@@ -12,7 +12,7 @@ RUN apt-get update && \
     unzip bedrock-server.zip -d bedrock-server && \
     rm bedrock-server.zip
 
-RUN sudo echo ${TIMEZONE} > /etc/timezone
+RUN sudo echo ${TZ} > /etc/timezone
 RUN sudo dpkg-reconfigure -f noninteractive tzdata
 
 VOLUME /bedrock-server/data
