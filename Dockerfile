@@ -13,7 +13,7 @@ RUN apt-get update && \
     rm bedrock-server.zip
 
 RUN echo ${TZ} > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
+RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime
 
 VOLUME /bedrock-server/data
 
