@@ -2,6 +2,7 @@ FROM ubuntu:18.04
 
 # Set Minecraft bedrock versuin
 ENV VERSION=1.14.30.2
+ENV TIMEZONE=Europe/Copenhagen
 
 # Install dependencies, download and extract the bedrock server
 RUN apt-get update && \
@@ -10,6 +11,9 @@ RUN apt-get update && \
     curl https://minecraft.azureedge.net/bin-linux/bedrock-server-${VERSION}.zip --output bedrock-server.zip && \
     unzip bedrock-server.zip -d bedrock-server && \
     rm bedrock-server.zip
+
+RUN sudo echo ${TIMEZONE} > /etc/timezone
+RUN sudo dpkg-reconfigure -f noninteractive tzdata
 
 VOLUME /bedrock-server/data
 
@@ -25,7 +29,6 @@ RUN ln -s /bedrock-server/data/worlds             /bedrock-server/worlds        
 ADD run.sh /bedrock-server/run.sh
 
 EXPOSE 19132/udp
-EXPOSE 19133/udp
 
 WORKDIR /bedrock-server
 ENV LD_LIBRARY_PATH=.
