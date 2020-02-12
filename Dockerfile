@@ -12,8 +12,8 @@ RUN apt-get update && \
     unzip bedrock-server.zip -d bedrock-server && \
     rm bedrock-server.zip
 
-RUN sudo echo ${TZ} > /etc/timezone
-RUN sudo dpkg-reconfigure -f noninteractive tzdata
+RUN echo ${TZ} > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
 
 VOLUME /bedrock-server/data
 
