@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 # Set Minecraft bedrock versuin
-ENV VERSION=1.14.30.2
+ENV VERSION=1.14.32.1
 ENV TZ=Europe/Copenhagen
 
 # Set timezone
