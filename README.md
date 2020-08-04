@@ -34,7 +34,7 @@ Navigate to Docker -> Container -> Details -> Terminal
     
 3. Start the server:
     ```bash
-     docker run -v "bedrock:/bedrock-server/data" \
+     docker run -v "bedrock-data:/bedrock-server/data" \
      -p 19132:19132/udp glemsom/bedrock-server:latest`
 
 ## Commands
