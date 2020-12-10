@@ -1,5 +1,5 @@
 # Minecraft Bedrock Server
-Minecraft Bedrock edition for Docker ( also Synology )
+Minecraft Bedrock edition for Docker ( also Synology ) - Forked from glemsom/bedrock-server
 
 ## Usage
 
@@ -7,10 +7,10 @@ Minecraft Bedrock edition for Docker ( also Synology )
 1. Working docker installation
 
 ### For Synology
-1. From the Docker application, navigate to Registry, and find "glemsom/bedrock-server" image (earch for glemsom)
+1. From the Docker application, navigate to Registry, and find "cambendy/bedrock-server" image 
 2. Right-click, and select Download this image
 3. Select the desired version from tags (NOTE: Latest is development tag, and might break at random times)
-4. Navigate to Image, and Launch an instance of "glemsom/bedrock-server"
+4. Navigate to Image, and Launch an instance of "cambendy/bedrock-server"
 5. Choose "Advanced Settings"
 6. OPTIONAL: Select "Enable auto-restart"
 7. Under the Volume tab, choose "Add Folder" - and find (or create) a folder for storing Bedrock configuration and world files. Mount the folder as `/bedrock-server/data`
@@ -35,7 +35,7 @@ Navigate to Docker -> Container -> Details -> Terminal
 3. Start the server:
     ```bash
      docker run -v "bedrock-data:/bedrock-server/data" \
-     -p 19132:19132/udp glemsom/bedrock-server:latest`
+     -p 19132:19132/udp cambendy/bedrock-server:latest`
 
 ## Commands
 There are various commands that can be used in the console.
