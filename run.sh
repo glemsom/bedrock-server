@@ -8,7 +8,7 @@
 if [ ! -f "/bedrock-server/data/server.properties" ]; then
 
 cat << 'EOF' > /bedrock-server/data/server.properties
-server-name=Minecraft Bedrock (GlemSom)
+server-name=Minecraft Bedrock (CamBendy)
 # Used as the server name
 # Allowed values: Any string
 
@@ -16,7 +16,7 @@ gamemode=survival
 # Sets the game mode for new players.
 # Allowed values: "survival", "creative", or "adventure"
 
-difficulty=easy
+difficulty=normal
 # Sets the difficulty of the world.
 # Allowed values: "peaceful", "easy", "normal", or "hard"
 
@@ -24,7 +24,7 @@ allow-cheats=false
 # If true then cheats like commands can be used.
 # Allowed values: "true" or "false"
 
-max-players=5
+max-players=6
 # The maximum number of players that can play on the server.
 # Allowed values: Any positive integer
 
@@ -69,7 +69,7 @@ level-seed=
 # Use to randomize the world
 # Allowed values: Any string
 
-default-player-permission-level=operator
+default-player-permission-level=member
 # Permission level for new players joining for the first time.
 # Allowed values: "visitor", "member", "operator"
 
