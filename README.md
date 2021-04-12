@@ -29,13 +29,15 @@ Navigate to Docker -> Container -> Details -> Terminal
         -v "bedrock-data:/bedrock-server/data" \
         -p 19132:19132/udp \
         --restart=unless-stopped \
-        glemsom/bedrock-server:latest
+        cambendy/bedrock-server:latest
     ```
     
 3. Start the server:
     ```bash
      docker run -v "bedrock-data:/bedrock-server/data" \
      -p 19132:19132/udp cambendy/bedrock-server:latest`
+     
+     LD_LIBRARY_PATH=. ./bedrock_server
 
 ## Commands
 There are various commands that can be used in the console.
