@@ -14,6 +14,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     curl https://minecraft.azureedge.net/bin-linux/bedrock-server-${VERSION}.zip --output bedrock-server.zip && \
     unzip bedrock-server.zip -d bedrock-server && \
+    chmod +x bedrock-server/bedrock_server && \
     rm bedrock-server.zip
 
 VOLUME /bedrock-server/data
