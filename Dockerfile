@@ -29,7 +29,7 @@ RUN ln -s /bedrock-server/data/worlds             /bedrock-server/worlds        
 
 ADD run.sh /bedrock-server/run.sh
 
-RUN chmod +x /bedrock_server
+RUN chmod +x /bedrock_server/bedrock_server
 
 EXPOSE 19132/udp
 
