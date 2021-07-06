@@ -1,0 +1,14 @@
+version: '1.17.2.01'
+services:
+ minecraft:
+   ports:
+     - "19132:19132"
+   environment:
+     TZ: "Australia/Melbourne"
+     VERSION: "1.17.2.01"
+   deploy:
+     resources:
+       limits:
+         memory: 8G
+   volumes:
+     - "~/your-data-dir:/bedrock-server/data"
